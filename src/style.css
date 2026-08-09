@@ -1,0 +1,260 @@
+:root {
+  --ink: #1a1208;
+  --leaf: #1f3d2a;
+  --leaf-deep: #13261a;
+  --gold: #c4a35a;
+  --gold-soft: #e8d5a3;
+  --paper: #f3e6c8;
+  --ember: #9a3412;
+  --muted: #6b5a3e;
+  --shadow: 0 14px 40px rgba(19, 38, 26, 0.28);
+  --font-te: "Noto Serif Telugu", "Gotu", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  color: var(--ink);
+  font-family: var(--font-te);
+  background: linear-gradient(160deg, #214532 0%, #163124 45%, #0f1f16 100%);
+  background-attachment: fixed;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+.shell {
+  width: min(720px, calc(100% - 1.5rem));
+  margin: 0 auto;
+  padding: 1.25rem 0 2.5rem;
+}
+
+.brand {
+  margin: 0 0 1rem;
+  color: var(--gold-soft);
+  font-size: clamp(2.2rem, 8vw, 3.4rem);
+  line-height: 1.1;
+}
+
+.brand.small {
+  font-size: clamp(1.4rem, 5vw, 2rem);
+  margin-bottom: 0.75rem;
+}
+
+.subtitle {
+  margin: -0.5rem 0 1rem;
+  color: rgba(232, 213, 163, 0.75);
+  font-size: 1rem;
+}
+
+.meta {
+  margin: 0.65rem 0 0.75rem;
+  color: rgba(232, 213, 163, 0.85);
+  font-size: 0.92rem;
+}
+
+.toolbar {
+  margin-bottom: 0.65rem;
+}
+
+.topic-link,
+.song-link {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.topic-index,
+.song-no {
+  flex: none;
+  min-width: 1.6rem;
+  color: var(--ember);
+  font-weight: 700;
+}
+
+.topic-body,
+.song-body {
+  display: grid;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.topic-name,
+.song-title {
+  display: block;
+  font-size: 1.12rem;
+  color: var(--leaf-deep);
+  line-height: 1.35;
+}
+
+.topic-meta,
+.song-meta {
+  display: block;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.voice-status {
+  margin: 0.45rem 0 0;
+  color: #fff;
+  background: rgba(154, 52, 18, 0.55);
+  border-radius: 8px;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.95rem;
+}
+
+.voice-status[hidden] {
+  display: none;
+}
+
+.search-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+}
+
+.search {
+  width: 100%;
+  border: 0;
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  font: inherit;
+  font-size: 1.1rem;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.voice-btn,
+.back-btn {
+  border: 0;
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  font: inherit;
+  cursor: pointer;
+  background: var(--leaf);
+  color: var(--gold-soft);
+}
+
+.voice-btn.listening {
+  background: var(--ember);
+  color: #fff;
+  animation: voice-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes voice-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(154, 52, 18, 0.55);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(154, 52, 18, 0);
+  }
+}
+
+.voice-live {
+  margin: 0.55rem 0 0;
+  padding: 0.55rem 0.75rem;
+  border-radius: 10px;
+  background: rgba(243, 230, 200, 0.12);
+  color: var(--gold-soft);
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+
+.voice-live.on {
+  background: rgba(154, 52, 18, 0.28);
+  color: #fff;
+}
+
+.list {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.card {
+  width: 100%;
+  text-align: left;
+  border: 0;
+  border-radius: 12px;
+  padding: 0.95rem 1rem;
+  font: inherit;
+  font-size: 1.15rem;
+  line-height: 1.4;
+  color: var(--leaf-deep);
+  background: var(--paper);
+  cursor: pointer;
+}
+
+.card:hover,
+.card:focus-visible {
+  outline: 2px solid var(--gold);
+}
+
+.empty {
+  margin-top: 1.25rem;
+  color: var(--gold-soft);
+  text-align: center;
+}
+
+.song-shell {
+  width: min(900px, calc(100% - 1.5rem));
+}
+
+.song-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.page-label {
+  color: var(--gold-soft);
+  font-size: 0.95rem;
+}
+
+.page-nav {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.nav-btn {
+  border: 0;
+  border-radius: 10px;
+  padding: 0.55rem 0.8rem;
+  font: inherit;
+  cursor: pointer;
+  background: var(--leaf);
+  color: var(--gold-soft);
+}
+
+.nav-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pdf-page {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 520px) {
+  .search-row {
+    grid-template-columns: 1fr;
+  }
+}
